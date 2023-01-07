@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {
+        
+          int start=0;
+        vector<int> diff;
+        vector<int> arr;
+        int n=gas.size();
+        for(int i=0;i<n;i++)
+        {
+            diff.push_back(gas[i]-cost[i]);
+           
+        }
+        int sum=0,max=-100000;
+        for(int i=n-1;i>=0;i--)
+        {sum=sum+diff[i];
+            arr.push_back(sum);
+         if(max<sum)
+         {start=i;
+         max=sum;
+         }
+        }
+        if(arr[n-1]>=0)
+            return start;
+        else 
+            return -1;
+                return -1;
+    }
+};
